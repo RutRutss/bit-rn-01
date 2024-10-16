@@ -5,7 +5,13 @@ import {
   View,
   Image,
   ScrollView,
+  Button,
+  Alert,
 } from "react-native";
+
+const addFriend = () => {
+  Alert.alert("แจ้งเตือน", "เพิ่มเป็นเพื่อนสำเร็จ!");
+};
 
 export default function App() {
   return (
@@ -20,6 +26,7 @@ export default function App() {
               paddingVertical: 15,
               backgroundColor: "white",
               paddingTop: 50,
+              marginBottom: 5,
             }}
           >
             <Text style={{ color: "black", fontSize: 20, fontWeight: "bold" }}>
@@ -34,20 +41,46 @@ export default function App() {
               paddingHorizontal: 15,
             }}
           >
-            <Image
-              style={{ width: 150, height: 150 }}
-              source={{
-                uri: "https://scontent-bkk1-1.xx.fbcdn.net/v/t39.30808-1/457263560_2512331735644743_6395110264418069127_n.jpg?stp=dst-jpg_s200x200&_nc_cat=101&ccb=1-7&_nc_sid=0ecb9b&_nc_eui2=AeEVNVAu7qt1gL7VxhFNr-BmnWVKjg_0Pn2dZUqOD_Q-fRvLzOl74VPNm2w3d-uzJG5AXNt1kZ7SZeXHogRMCpHh&_nc_ohc=VWa5wv37_YUQ7kNvgE9ZmCf&_nc_ht=scontent-bkk1-1.xx&_nc_gid=Afji_NTGbl3cbb4aGDbqu5J&oh=00_AYAGTH1UX-00-1oShSOVBs4jiFqjZ1McauUOVTCXchNG-A&oe=6714FEB3",
+            <View
+              style={{
+                width: 150,
+                height: 150,
+                borderRadius: 75,
+                overflow: "hidden",
               }}
-            />
+            >
+              <Image
+                style={{
+                  width: 150,
+                  height: 200,
+                }}
+                source={{
+                  uri: "https://it.e-tech.ac.th/main/wp-content/uploads/2024/05/%E0%B8%AD.%E0%B8%A3%E0%B8%B8%E0%B8%88-768x1170.png",
+                }}
+              />
+            </View>
 
             <Text style={{ color: "black", fontSize: 26, fontWeight: "bold" }}>
               Wisarut Yuensuk
             </Text>
-            <Text>
-              เพื่อน <Text style={{ fontWeight: "bold" }}>979</Text> คน
-            </Text>
-            <Text>Rut_Wisarut</Text>
+
+            <View style={{ flexDirection: "row" }}>
+              <View>
+                <Text>
+                  เพื่อน <Text style={{ fontWeight: "bold" }}>979</Text> คน
+                </Text>
+                <Text>Rut_Wisarut</Text>
+              </View>
+              <View style={{ flex: 1, alignItems: "center" }}>
+                <View style={{ width: "80%" }}>
+                  <Button
+                    title="เพิ่มเพื่อน"
+                    color={"#0866ff"}
+                    onPress={addFriend}
+                  />
+                </View>
+              </View>
+            </View>
           </View>
 
           {/* ข้อมูลส่วนตัว */}
@@ -60,11 +93,16 @@ export default function App() {
             }}
           >
             <Text style={{ fontSize: 16, marginBottom: 6 }}>
-              🎓 เคยศึกษา คอมพิวเตอร์ศึกษา ที่ มหาวิทยาลัยราชภัฏราชนครินทร์
+              🎓 เคยศึกษา{" "}
+              <Text style={{ fontWeight: "bold" }}>คอมพิวเตอร์ศึกษา</Text> ที่{" "}
+              <Text style={{ fontWeight: "bold" }}>
+                มหาวิทยาลัยราชภัฏราชนครินทร์
+              </Text>
               ฉะเชิงเทรา
             </Text>
             <Text style={{ fontSize: 16, marginBottom: 6 }}>
-              🏠 อาศัยอยู่ที่ Prachin Buri, Thailand
+              🏠 อาศัยอยู่ที่{" "}
+              <Text style={{ fontWeight: "bold" }}>Prachin Buri, Thailand</Text>
             </Text>
             <Text style={{ fontSize: 16, marginBottom: 6 }}>❤️ มีแฟนแล้ว</Text>
 
@@ -85,71 +123,123 @@ export default function App() {
 
             <Text>เพื่อน 979 คน</Text>
 
-            <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
+            <View
+              style={{
+                flexDirection: "row",
+                flexWrap: "wrap",
+                justifyContent: "center",
+              }}
+            >
               {/* คอลัมน์ที่ 1 */}
               <View
-                style={{ width: "33%", alignItems: "center", marginBottom: 20 }}
+                style={{
+                  width: "30%",
+                  alignItems: "center",
+                  marginVertical: 15,
+                  marginHorizontal: 5,
+                }}
               >
                 <Image
-                  style={{ width: 100, height: 100 }}
-                  source={{ uri: "https://picsum.photos/seed/picsum/200/300" }}
+                  style={{
+                    width: "100%",
+                    height: 100,
+                  }}
+                  source={{
+                    uri: "https://it.e-tech.ac.th/main/wp-content/uploads/2024/05/%E0%B8%AD.%E0%B9%82%E0%B8%AD%E0%B9%8A%E0%B8%84-768x1170.png",
+                  }}
                 />
                 <Text>เกียรติยศ สีหะวงษ์</Text>
               </View>
 
               {/* คอลัมน์ที่ 2 */}
               <View
-                style={{ width: "33%", alignItems: "center", marginBottom: 20 }}
+                style={{
+                  width: "30%",
+                  alignItems: "center",
+                  marginVertical: 15,
+                  marginHorizontal: 5,
+                  height: 100,
+                }}
               >
                 <Image
                   style={{ width: 100, height: 100 }}
-                  source={{ uri: "https://picsum.photos/200/300" }}
+                  source={{
+                    uri: "https://it.e-tech.ac.th/main/wp-content/uploads/2024/05/%E0%B8%AD.%E0%B8%AD%E0%B9%89%E0%B8%AD%E0%B8%99-768x1170.png",
+                  }}
                 />
                 <Text>อาทิตยา เสียงล้ำ</Text>
               </View>
 
               {/* คอลัมน์ที่ 3 */}
               <View
-                style={{ width: "33%", alignItems: "center", marginBottom: 20 }}
+                style={{
+                  width: "30%",
+                  alignItems: "center",
+                  marginVertical: 15,
+                  marginHorizontal: 5,
+                }}
               >
                 <Image
                   style={{ width: 100, height: 100 }}
-                  source={{ uri: "https://picsum.photos/200/300" }}
+                  source={{
+                    uri: "https://it.e-tech.ac.th/main/wp-content/uploads/2024/05/%E0%B8%AD.%E0%B9%82%E0%B8%94%E0%B8%99%E0%B8%B1%E0%B8%97-768x1170.png",
+                  }}
                 />
-                <Text>กัญจน์ ศักดิ์คำดวง</Text>
+                <Text>กิตติณัฐ์ เลิศรัตนไผท</Text>
               </View>
 
               {/* คอลัมน์ที่ 4 */}
               <View
-                style={{ width: "33%", alignItems: "center", marginBottom: 20 }}
+                style={{
+                  width: "30%",
+                  alignItems: "center",
+                  marginVertical: 15,
+                  marginHorizontal: 5,
+                }}
               >
                 <Image
                   style={{ width: 100, height: 100 }}
-                  source={{ uri: "https://picsum.photos/100/100" }}
+                  source={{
+                    uri: "https://it.e-tech.ac.th/main/wp-content/uploads/2024/05/%E0%B8%AD.%E0%B8%AB%E0%B8%A3%E0%B8%B1%E0%B9%88%E0%B8%87-768x1170.png",
+                  }}
                 />
-                <Text>สมหมาย รักพ่อ</Text>
+                <Text>อภินันท์ สมบูรณ์กุล</Text>
               </View>
 
               {/* คอลัมน์ที่ 5 */}
               <View
-                style={{ width: "33%", alignItems: "center", marginBottom: 20 }}
+                style={{
+                  width: "30%",
+                  alignItems: "center",
+                  marginVertical: 15,
+                  marginHorizontal: 5,
+                }}
               >
                 <Image
                   style={{ width: 100, height: 100 }}
-                  source={{ uri: "https://picsum.photos/200/300" }}
+                  source={{
+                    uri: "https://it.e-tech.ac.th/main/wp-content/uploads/2024/05/%E0%B8%AD.%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%A1-768x1170.png",
+                  }}
                 />
-                <Text>สมปอง รักแม่</Text>
+                <Text>เอกรัตน์ อุไรโรจน์</Text>
               </View>
 
               {/* คอลัมน์ที่ 6 */}
               <View
-                style={{ width: "33%", alignItems: "center", marginBottom: 20 }}
+                style={{
+                  width: "30%",
+                  alignItems: "center",
+                  marginVertical: 15,
+                  marginHorizontal: 5,
+                }}
               >
                 <Image
                   style={{ width: 100, height: 100 }}
-                  source={{ uri: "https://picsum.photos/200/300" }}
+                  source={{
+                    uri: "https://it.e-tech.ac.th/main/wp-content/uploads/2024/05/%E0%B8%AD.%E0%B9%81%E0%B8%9A%E0%B8%A1-768x1170.png",
+                  }}
                 />
-                <Text>สมหญิง ศรีสวย</Text>
+                <Text>ภัททิรา ขวัญรวี</Text>
               </View>
             </View>
 
